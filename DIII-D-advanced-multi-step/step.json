@@ -1,0 +1,101 @@
+[
+	{
+		"step_comment": "Each simulation step consists of a combination of coils' currents, ech1–10, inj1–10, average parameters, and profiles. For step 0, the coils' currents are required. See other examples for more details.",
+
+		"step": 0,
+
+		"signals_comment": "Coils' currents or voltages, depending on the selected control_mode. For DIII-D, the coils are: ecoilA, ecoilB, F1-9A, and F1-9B (total: 20 coils).",
+		"signals": [
+			4068.2905464520277, -3282.6405009993405, -66358.9063037574,
+			-169523.01610382125, -34432.23021031281, 114077.01083673377,
+			121836.01157379923, -156009.0148200601, -219324.56210129696,
+			124896.01186448363, -43163.20410028408, -61817.205872319035,
+			-172681.01640381516, -48760.904632037054, 93575.6088892052,
+			55408.90526356318, -116278.01104581755, -198943.4660715925,
+			153021.01453621534, -43447.70412731013
+		],
+
+		"ech1-10_parameters_comment": "Parametric electron heating: [power, peak position, half-width, polynomial degree] for up to 10 devices.",
+		"ech1": [10, 0.2, 0.1, 2],
+		"ech2": null,
+		"ech3": null,
+		"ech4": null,
+		"ech5": null,
+		"ech6": null,
+		"ech7": null,
+		"ech8": null,
+		"ech9": null,
+		"ech10": null,
+
+		"inj1-10_parameters_comment": "Parametric ion heating: [power, peak position, half-width, polynomial degree] for up to 10 devices.",
+		"inj1": null,
+		"inj2": null,
+		"inj3": null,
+		"inj4": null,
+		"inj5": null,
+		"inj6": null,
+		"inj7": null,
+		"inj8": null,
+		"inj9": null,
+		"inj10": null,
+
+		"average_parameters_comment": "Various average parameters that can be externally set for each simulation step.",
+		"bt_evolution_comment": "Toroidal magnetic field evolution, [T].",
+		"bt_evolution": null,
+
+		"ip_evolution_comment": "Plasma current evolution, [A].",
+		"ip_evolution": null,
+
+		"n0_bndry_comment": "Main gas atom density at the plasma boundary, [1e20 m^-3].",
+		"n0_bndry": null,
+
+		"ne_avg_comment": "Volume average electron density, [1e19 m^-3].",
+		"ne_avg": null,
+
+		"r_evolution_comment": "Horizontal position evolution, [m].",
+		"r_evolution": null,
+
+		"z_evolution_comment": "Vertical position evolution, [m].",
+		"z_evolution": null,
+
+		"external_profiles_comment": "Various profiles that can be externally set for each simulation step.",
+		"external_profile_norm_coords_comment": "Normalized radial coordinates, used for all profiles.",
+		"external_profile_norm_coords": [
+			0, 0.111111111111111, 0.222222222222222, 0.333333333333333,
+			0.444444444444444, 0.555555555555556, 0.666666666666667,
+			0.777777777777778, 0.888888888888889, 0.95, 1
+		],
+
+		"ne_profile_comment": "Electron density profile, [1e19 m^-3].",
+		"ne_profile": null,
+
+		"nz_profile_comment": "Impurity density profile, [1e19 m^-3].",
+		"nz_profile": null,
+
+		"te_profile_comment": "Electron temperature profile, [eV].",
+		"te_profile": null,
+
+		"ti_profile_comment": "Ion temperature profile, [eV].",
+		"ti_profile": null,
+
+		"zeff_profile_comment": "Zeff profile, [-].",
+		"zeff_profile": [
+			2.5, 2.51111111111111, 2.59222222222222, 2.73333333333333,
+			2.84444444444444, 2.95555555555556, 3, 3.16666666666667, 3.27777777777778,
+			3.38888888888889, 3.5
+		]
+	},
+	{
+		"step": 9,
+
+		"signals": [
+			4088.2905464520277, -3288.6405009993405, -66388.9063037574,
+			-169588.01610382125, -34488.23021031281, 114088.01083673377,
+			121888.01157379923, -156088.0148200601, -219388.56210129696,
+			124888.01186448363, -43188.20410028408, -61888.205872319035,
+			-172688.01640381516, -48788.904632037054, 93588.6088892052,
+			55488.90526356318, -116288.01104581755, -198988.4660715925,
+			153088.01453621534, -43488.70412731013
+		]
+	}
+]

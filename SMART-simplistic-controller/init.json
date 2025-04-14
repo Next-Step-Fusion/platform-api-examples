@@ -1,0 +1,117 @@
+{
+	"general_comment": "Absolutely synthetic example of a SMART tokamak magnetic equilibrium simulation with vertical stabilization. For questions or comments, please contact twin@nextfusion.org.",
+
+	"time_step_comment": "Duration of a single simulation step, [s].",
+	"time_step": 0.0001,
+
+	"steps_num_comment": "Total number of simulated steps.",
+	"steps_num": 10,
+
+	"ip_fixed_steps_comment": "Number of initial simulation steps with fixed plasma current.",
+	"ip_fixed_steps": 10,
+
+	"param_mode_comment": "Defines the method for setting PPRIME and FFPRIME profiles in the Grad-Shafranov equation: 1 — set via alpha_p, alpha_ff, beta_p, and beta_ff in the Initial and Boundary Conditions / Transport section below. 2 — set via alpha_p and beta_p in the Initial and Boundary Conditions / Transport section below. 6 — set profiles for PPRIME and FFPRIME via plasma_pressure_derivative and plasma_current_derivative in the Initial and Boundary Conditions / Transport section below.",
+	"param_mode": 6,
+
+	"kinetics_mode_comment": "Density and temperature profiles are calculated in the first step based on the t_e_* and t_i_* parameters from Initial and Boundary Conditions / Transport. Further calculations depend on the selected kinetics mode. If set to 4, heating control and external profiles must be provided via Control / Steps.",
+	"kinetics_mode": 3,
+
+	"rho_initial_comment": "Initial normalized poloidal flux coordinate for PPRIME and FFPRIM distribution.",
+	"rho_initial": [],
+
+	"t_e_axis_comment": "Electron temperature at the axis, [eV].",
+	"t_e_axis": 686.236,
+
+	"t_e_bndry_comment": "Electron temperature at the boundary, [eV].",
+	"t_e_bndry": 10,
+
+	"t_i_axis_comment": "Ion temperature at the axis, [eV].",
+	"t_i_axis": 101.192,
+
+	"t_i_bndry_comment": "Ion temperature at the boundary, [eV].",
+	"t_i_bndry": 10,
+
+	"alpha_p_comment": "Plasma pressure derivative profile coefficient, [-].",
+	"alpha_p": 0.445,
+
+	"alpha_ff_comment": "Plasma current derivative profile coefficient, [-].",
+	"alpha_ff": 0.1,
+
+	"beta_p_comment": "Plasma pressure derivative amplification factor, [-].",
+	"beta_p": 2.922,
+
+	"beta_ff_comment": "Plasma current derivative amplification factor, [-].",
+	"beta_ff": 0.972,
+
+	"plasma_pressure_derivative_comment": "PPRIME [Pa / (Weber/rad)], the radial derivative of the plasma pressure profile, representing how the pressure varies with respect to the minor radius.",
+	"plasma_pressure_derivative": [],
+
+	"plasma_current_derivative_comment": "FFPRIM [(mT)^2 / (Weber/rad)], the radial derivative of the toroidal flux function, describes how the toroidal flux distribution changes across the plasma radius.",
+	"plasma_current_derivative": [],
+
+	"r_mag_comment": "Initial guess for the major radius of the magnetic axis, [m].",
+	"r_mag": 0.56231,
+
+	"z_mag_comment": "Initial guess for the vertical position of the magnetic axis, [m].",
+	"z_mag": 0.022158,
+
+	"center_comment": "Initial guess for the major radius of the plasma geometric center, [m].",
+	"center": 0.5,
+
+	"b_tor_comment": "Toroidal magnetic field, [T].",
+	"b_tor": 1,
+
+	"ip_comment": "Plasma current, [A].",
+	"ip": 80979,
+
+	"grid_coef_comment": "Grid homogeneity coefficient: 1 — fully homogeneous, <1 — tighter towards the edge, <1e-5 — defaults to 0.95",
+	"grid_coef": 0.95,
+
+	"boundary_size_comment": "Number of points used to represent the plasma boundary in equilibrium calculations.",
+	"boundary_size": 64,
+
+	"profile_size_comment": "Number of radial points used to represent the plasma profiles in equilibrium calculations.",
+	"profile_size": 24,
+
+	"external_profiles_size_comment": "Number of radial points used to represent external plasma profiles in equilibrium calculations.",
+	"external_profiles_size": 11,
+
+	"density_mode_comment": "Density mode: 0 - electron density evolves, 1 - average electron density is fixed at the first step.",
+	"density_mode": 0,
+
+	"vertical_stability_mode_comment": "Vertical stability mode: 1 - no stabilization | 3 - vertical and horizontal stabilization | 6 - vertical stabilization. For 3 and 6, use r_control_coils and z_control_coils below.",
+	"vertical_stability_mode": 6,
+
+	"r_coefficients_comment": "Coefficients for the horizontal position.",
+	"r_coefficients": [],
+
+	"z_coefficients_comment": "Coefficients for the vertical position.",
+	"z_coefficients": [],
+
+	"control_mode_comment": "The control mode defines what is used as a control signal (see steps/signals below): 0 - Coil currents | 1 - Coil voltages | 2 - Coil currents, but some coils are passive (see passive_coils below).",
+	"control_mode": 0,
+
+	"passive_coils_comment": "Indices of coils that are passive.",
+	"passive_coils": [],
+
+	"virtual_stability_key_comment": "If set to 1, a linear response model is used to stabilize the plasma at the Z-position from the first step. Stabilization is achieved through the application of an artificial magnetic field.",
+	"virtual_stability_key": 0,
+
+	"r_control_coils_comment": "Control coils for the horizontal position.",
+	"r_control_coils": [2, 3],
+
+	"z_control_coils_comment": "Control coils for the vertical position.",
+	"z_control_coils": [4, 5],
+
+	"r_control_ref_comment": "Reference major radius for the control coils, [cm].",
+	"r_control_ref": 52.31,
+
+	"z_control_ref_comment": "Reference vertical position for the control coils, [cm].",
+	"z_control_ref": 2.21,
+
+	"zeff_axis_comment": "Effective charge at the axis.",
+	"zeff_axis": 1.9,
+
+	"zeff_bndry_comment": "Effective charge at the boundary.",
+	"zeff_bndry": 1.9
+}

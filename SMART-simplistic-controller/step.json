@@ -1,0 +1,9 @@
+{
+	"step_comment": "Each simulation step consists of a combination of coils' currents, ech1–10, inj1–10, average parameters, and profiles. For step 0, the coils' currents are required. See other examples for more details.",
+
+	"step": 0,
+
+	"signals": [
+		-3576199.4, -116252.09, -17539.032, -9555.1619, -36233.83, 7877.8715
+	]
+}
