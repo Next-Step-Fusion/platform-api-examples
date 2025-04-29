@@ -20,7 +20,9 @@ queryParams = struct('save', false);  % save the discharge data on the platform
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Initialize plasma discharge through API
 
-initData = loadjson(".." + filesep + "sample-data" + filesep + "init.json");
+% NOTE: the paths may differ on a Windows machine
+initData = loadjson(".." + filesep + ".." + filesep + "init.json");
+
 % NOTE: one can edit initData further here
 rsp = init_discharge(userOptions, initData, queryParams);
 
@@ -30,7 +32,7 @@ sim_id = rsp.id;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Step through the plasma discharge
 
-stepData = loadjson(".." + filesep + "sample-data" + filesep + "step.json");
+load('stepData.mat'); % load step signals data structure from adjacent .mat-file
 for i = 0:num_steps
     try
         stepData.step = i;

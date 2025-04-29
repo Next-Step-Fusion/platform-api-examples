@@ -18,8 +18,10 @@ persistent sim_id;
         % Define additional query params
         queryParams = struct('save', false);  % save the discharge data on the platform
 
-        % Initialize plasma discharge through API
-        initData = loadjson("sample-data" + filesep + "init.json");
+        % Initialize plasma discharge through API% 
+        
+        % NOTE: the paths may differ on a Windows machine
+        initData = loadjson(".." + filesep + "init.json");
 
         % NOTE: one can edit initData further here
         rsp = init_discharge(userOptions, initData, queryParams);
@@ -30,8 +32,7 @@ persistent sim_id;
 
     else
         % Step through the plasma discharge
-        %stepData = loadjson("sample-data" + filesep + "step.json");
-        stepData = struct();
+        stepData = struct();  % we'll get the currents from an input block
 
         try
             stepData.step = (i_step-1);  % NOTE: API Step count starts from 0 

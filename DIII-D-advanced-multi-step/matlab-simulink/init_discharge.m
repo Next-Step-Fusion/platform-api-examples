@@ -18,8 +18,7 @@ function response = init_discharge(user_options, init_data, query_params)
     response = webread(endpoint, request_options);
     suite = find_suite(response, ...
                        user_options.twin_key, ...
-                       user_options.simulator_key, ...
-                       user_options.simulator_version);
+                       user_options.simulator_key);
     fprintf('using simulation suite %s\n', suite.id);
 
     % Initialize the discharge through API:
