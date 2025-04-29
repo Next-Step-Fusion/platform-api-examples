@@ -1,0 +1,48 @@
+
+* Next-Step-Fusion FusionTwin.io API interface example for MATLAB
+
+This sample snapshot recreates the parent example DIII-D discharge
+simulation in MATLAB and Simulink.
+
+** Installation
+
+Install external JSON pasing library for MATLAB: [[https://github.com/NeuroJSON/jsonlab/releases/tag/v2.9.8][JSONlab]]
+
+Usage for popular external JSON library for initial data is for
+demonstration purpose. One can use either built-in or external Matlab
+libraries for parsing JSON payload data, as well as for HTTP requests.
+
+** Usage
+
+*** within Matlab
+
+Observe, edit and run ~examples/simple_demo.m~
+
+The top section contains configuration parameters. The user should
+provide at least their API key and Workspace ID for =fusiontwin.io=
+
+The =rsp= variable contains total data from the last simulator's
+response.
+
+*** within Simulink
+
+Inspect ~./api_call_model.slx~, as well as
+~./fuisiontwinwrappercontrol.m~
+
+~fuisiontwinwrappercontrol.m~ is used in corresponding EML block to
+demonstrate external Matlab function call from Simulink.
+
+The differences w/r to ~examples/simple_demo.m~:
+
+- step index and constant currents are used as input signals. Step
+  index is incremented in discrete time.
+- the simulator's step status code and sample diagnostics (loops) are
+  used as output signals. In the similar way, one can obtain the rest
+  of the data from =rsp= on each step.
+
+NOTE: The whole logic of the API EML block is put in a separate
+~fuisiontwinwrappercontrol.m~ script designated as "extrinsic"
+function. This solves C-code generation problem (codegen won't work
+for current API call wrappers, due to usage of http-request and json
+pasing libraries, but simulations within Simulink system editor would
+run fine).
