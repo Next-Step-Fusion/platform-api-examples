@@ -36,3 +36,5 @@ Need assistance? We’re here to help.
 ## 🔗 Follow Us
 Stay connected with the latest updates and developments:  
 👉 [Follow us on LinkedIn](https://www.linkedin.com/company/nextfusion/)
+👉 [Read our tech blog](https://blog.nextfusion.org)
+👉 [Watch our video](https://www.youtube.com/@NextStepFusion)
