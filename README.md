@@ -25,6 +25,7 @@ These examples demonstrate how to interact with the **Fusion Twin Public API**:
   A simplistic example of a single-step ISTTOK tokamak simulation. This example receives the currents for coils as input.
 - `DIII-D-advanced-multi-step/`  
   An advanced example of a multi-step DIII-D tokamak simulation. This example receives currents, parameters for ECH and ICH devices, as well as stepwise profiles and average values for different parameters.
+  - Inside the `matlab-simulink/` folder, there is an example of API usage from MATLAB/Simulink.
 - `SMART-simplistic-controller/`  
   A simplistic example of a multi-step SMART simulation with an external controller. This example receives the currents for coils as input.
 
@@ -49,3 +50,5 @@ Need assistance? We’re here to help.
 ## 🔗 Follow Us
 Stay connected with the latest updates and developments:  
 👉 [Follow us on LinkedIn](https://www.linkedin.com/company/nextfusion/)
+👉 [Read our tech blog](https://blog.nextfusion.org)
+👉 [Watch our video](https://www.youtube.com/@NextStepFusion)
