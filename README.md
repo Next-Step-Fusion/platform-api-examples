@@ -34,7 +34,7 @@ The following API methods are available:
 - `dicts/simulation_suites/` - get a list of available simulation suites
 - `workspaces/{workspace_id}/simulations/init` - initialize a simulation
 - `workspaces/{workspace_id}/simulations/step/{simulation_id}/` - run a simulation step
-- `workspaces/{WORKSPACE_ID}/simulations/abort/{simulation_id}/` - abort a simulation
+- `workspaces/{workspace_id}/simulations/abort/{simulation_id}/` - abort a simulation
 
 The following public digital replicas are available:
 - DIII-D, TWIN_KEY = 'd3d2024'
