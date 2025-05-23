@@ -28,6 +28,20 @@ These examples demonstrate how to interact with the **Fusion Twin Public API**:
 - `SMART-simplistic-controller/`  
   A simplistic example of a multi-step SMART simulation with an external controller. This example receives the currents for coils as input.
 
+## 📚 Available API Methods
+The following API methods are available:
+- `dicts/simulation_suites/` - get a list of available simulation suites
+- `workspaces/{workspace_id}/simulations/init` - initialize a simulation
+- `workspaces/{workspace_id}/simulations/step/{simulation_id}/` - run a simulation step
+- `workspaces/{WORKSPACE_ID}/simulations/abort/{simulation_id}/` - abort a simulation
+
+The following public digital replicas are available:
+- DIII-D, TWIN_KEY = 'd3d2024'
+- ISTTOK, TWIN_KEY = 'isttok2024'
+- SMART, TWIN_KEY = 'smart2024'
+- NSF NTT, TWIN_KEY = 'nsfntt2024'
+- HBT-EP, TWIN_KEY = 'hbtep'
+
 ## 📬 Support
 Need assistance? We’re here to help.  
 📧 Contact us: [twin@nextfusion.org](mailto:twin@nextfusion.org)
