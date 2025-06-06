@@ -42,6 +42,7 @@ The following public digital replicas are available:
 - SMART, TWIN_KEY = 'smart2024'
 - NSF NTT, TWIN_KEY = 'nsfntt2024'
 - HBT-EP, TWIN_KEY = 'hbtep'
+- Pegasus-III, TWIN_KEY = 'pegasus'
 
 ## 📬 Support
 Need assistance? We’re here to help.  
