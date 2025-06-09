@@ -20,14 +20,14 @@ queryParams = struct('save', false);  % save the discharge data on the platform
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Initialize plasma discharge through API
 
-% NOTE: the paths may differ on a Windows machine
-initData = loadjson(".." + filesep + ".." + filesep + "init.json");
-
+load('initData.mat');
 % NOTE: one can edit initData further here
 rsp = init_discharge(userOptions, initData, queryParams);
 
-disp(rsp);
-sim_id = rsp.id;
+assert(~isempty(rsp.Body) && ~isempty(rsp.Body.Data));
+rspdata = rsp.Body.Data;
+disp(rspdata);
+sim_id = rspdata.id;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Step through the plasma discharge
@@ -38,17 +38,23 @@ for i = 0:num_steps
         stepData.step = i;
         % NOTE: one can edit stepData further here
         rsp = step_discharge(userOptions, sim_id, stepData);
-        disp(rsp.output);
+        assert(~isempty(rsp.Body) && ~isempty(rsp.Body.Data));
+        rspdata = rsp.Body.Data;
+        disp(rspdata.output);
     catch exception
         fprintf('Simulation is broken for step %d\n', i);
         fprintf('Exception Message: %s\n', exception.message);
         break
-        % NOTE: no JSON payload available with `webwrite` on an error in request.
-        % NOTE: one can write the step functionality with `matlab.net.http.*`
     end
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Abort the discharge.
+% Should result in empty response with 204 code (No Content).
+
+abort_discharge(userOptions, sim_id);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Optional Environment cleanup
 
-rmpath('..');
+% rmpath('..');

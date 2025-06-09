@@ -1,4 +1,5 @@
 function queryString = webparamstostring(params)
+% Turns `params` struct fields into query options string.
     fields = fieldnames(params);
     queryString = '';
     
