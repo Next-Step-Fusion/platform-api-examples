@@ -1,7 +1,6 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Next-Step-Fusion FusionTwin.io API simple demo
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Load API definitions
+%% Next-Step-Fusion FusionTwin.io API simple demo
+%
+%% Load API definitions
 addpath('..');
 
 % Define number of steps in the simulation
@@ -17,8 +16,7 @@ disp(userOptions);
 % Define additional query params
 queryParams = struct('save', false);  % save the discharge data on the platform
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Initialize plasma discharge through API
+%% Initialize plasma discharge through API
 
 load('initData.mat');
 % NOTE: one can edit initData further here
@@ -29,8 +27,7 @@ rspdata = rsp.Body.Data;
 disp(rspdata);
 sim_id = rspdata.id;
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Step through the plasma discharge
+%% Step through the plasma discharge
 
 load('stepData.mat'); % load step signals data structure from adjacent .mat-file
 for i = 0:num_steps
@@ -48,13 +45,11 @@ for i = 0:num_steps
     end
 end
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Abort the discharge.
+%% Abort the discharge.
 % Should result in empty response with 204 code (No Content).
 
 abort_discharge(userOptions, sim_id);
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Optional Environment cleanup
+%% Optional Environment cleanup
 
-% rmpath('..');
+rmpath('..');

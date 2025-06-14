@@ -3,14 +3,21 @@ function [status, loops] = fusiontwin_wrapper(i_step, currents)
 % On i_step == 0 call init_discharge.
 % On further steps increment discharge simulation step.
 
-% Load API utility definitions
-addpath('..');  % load path with pre-configured FusionTwin API requests.
-
 % Persist userOptions and sim_id within the wrapper.
 persistent userOptions; 
 persistent sim_id;
+global rsp;
+global rspdata;
+global scheme_name_fusiontwin_wrapper;  % TODO: move state to an observable external container
+global signal_stop_fusiontwin_wrapper;  % TODO: move state to an observable external container
+
+% This variable stores the name of the Simulink scheme:
+scheme_name_fusiontwin_wrapper = "simulink_demo";
 
     if i_step == 0
+        % Reset Stop signal
+        signal_stop_fusiontwin_wrapper = false;
+
         % Define and edit API user options
         userOptions = api_user_options();
         userOptions.api_key = '';
@@ -36,6 +43,19 @@ persistent sim_id;
         return;
 
     else
+        % Abort computation if stop signal received
+        if signal_stop_fusiontwin_wrapper
+            fprintf("Aborting simulation.\n");
+            fprintf("Container `rsp` stores API server response from step %d.\n", i_step-1);
+            
+            status = int8(rspdata.output.ok); loops = rspdata.output.out_params.loops;
+            
+            % future functionality:
+            % abort_discharge(userOptions, sim_id);
+            set_param(scheme_name_fusiontwin_wrapper, 'SimulationCommand', 'stop');
+            return;
+        end
+
         % Step through the plasma discharge
         stepData = struct();  % we'll get the currents from an input block
 
